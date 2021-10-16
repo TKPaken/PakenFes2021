@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ThemeProvider, StyledEngineProvider, createTheme } from "@mui/material/styles";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+const theme = createTheme();
+
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <App/>
+            </ThemeProvider>
+        </StyledEngineProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );

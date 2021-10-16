@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import {Divider} from "@material-ui/core";
+import {Divider} from "@mui/material";
 
 function Footer(): JSX.Element {
     return (

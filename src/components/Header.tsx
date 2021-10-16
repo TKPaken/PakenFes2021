@@ -1,17 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import './Header.css';
+import React, {useState, useEffect} from "react";
+import "./Header.css";
 
 interface Props {
     name?: string;
 }
 
-function Header(props: Props) {
+function Header(props: Props): JSX.Element {
     const [nowWidth, setNowWidth] = useState(window.innerWidth);
     const [isOpen, setIsOpen] = useState(window.innerWidth >= 1024);
     const [isHidden, setIsHidden] = useState(false);
     const [pos1, setpos1] = useState(window.pageYOffset);
     const [pos2, setpos2] = useState(window.pageYOffset);
-    const onScroll = (() => {
+    const onScroll = ((): void => {
         if (isOpen) return;
         if (!isHidden && window.pageYOffset - pos1 >= 100 && window.pageYOffset >= 300) {
             setIsHidden(true);
@@ -28,7 +28,7 @@ function Header(props: Props) {
             setpos2(Math.max(pos2, window.pageYOffset));
         }
     });
-    const onResize = (() => {
+    const onResize = ((): void => {
         if (window.innerWidth >= 1024) {
             setIsHidden(false);
             setIsOpen(true);
@@ -36,11 +36,11 @@ function Header(props: Props) {
         if (nowWidth >= 1024 && window.innerWidth < 1024) setIsOpen(false);
         setNowWidth(window.innerWidth);
     });
-    const onKeyDown = (() => {
-        if (isOpen && window.innerWidth < 1024) setIsOpen(false)
+    const onKeyDown = ((): void => {
+        if (isOpen && window.innerWidth < 1024) setIsOpen(false);
     });
     useEffect(() => {
-        document.title = props.name + " | Diver City"
+        document.title = props.name + " | Diver City";
         document.addEventListener("scroll", onScroll);
         document.addEventListener("click", onKeyDown);
         window.addEventListener("resize", onResize);
@@ -48,17 +48,17 @@ function Header(props: Props) {
             document.removeEventListener("scroll", onScroll);
             document.removeEventListener("click", onKeyDown);
             window.removeEventListener("resize", onResize);
-        }
+        };
     });
-    const url_list = [['Home', '/']];
-    const list_items = url_list.map((name) =>
-        <li><a href={name[1]} className={name[0] === props.name ? "now" : ""}>{name[0]}</a></li>
+    const url_list = [["Home", "/"]];
+    const list_items = url_list.map((name, index) =>
+        <li key={index}><a href={name[1]} className={name[0] === props.name ? "now" : ""}>{name[0]}</a></li>
     );
     return (
         <header className={(isHidden ? "hidden" : "tapu")}>
             <div className={"hideLayer " + (window.innerWidth < 1024 && isOpen ? "active" : "inactive")}/>
             <div className={"humburger " + (isOpen ? "active" : "inactive")}
-                 onClick={() => setIsOpen(!isOpen)}>
+                onClick={(): void => setIsOpen(!isOpen)}>
                 <span/>
                 <span/>
                 <span/>

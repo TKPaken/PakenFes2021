@@ -1,8 +1,8 @@
-import React from 'react'
-import './Footer.css'
-import {Divider} from '@material-ui/core'
+import React from "react";
+import "./Footer.css";
+import {Divider} from "@material-ui/core";
 
-function Footer() {
+function Footer(): JSX.Element {
     return (
         <footer>
             <Divider/>

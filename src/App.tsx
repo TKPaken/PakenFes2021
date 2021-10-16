@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import './App.css';
-import Home from './pages/Home';
+import React, {useState, useEffect} from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
 
 /*
 import Paper from './pages/Paper';
@@ -11,11 +11,11 @@ import Lecture from './pages/Lecture';
 import CG from './pages/CG';
  */
 
-import NotFound from './pages/NotFound';
+import NotFound from "./pages/NotFound";
 
-function App() {
+function App(): JSX.Element {
     const [isLoaded, setIsLoaded] = useState(false);
-    const onLoad = (() => {
+    const onLoad = ((): void => {
         setIsLoaded(true);
     });
     useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
             window.addEventListener("load", onLoad);
             return (): void => {
                 window.removeEventListener("load", onLoad);
-            }
+            };
         }
     }, []);
     return (
@@ -42,7 +42,7 @@ function App() {
             </div>
             <Router>
                 <Switch>
-                    <Route exact path='/' component={Home}/>
+                    <Route exact path="/" component={Home}/>
                     <Route component={NotFound}/>
                 </Switch>
             </Router>

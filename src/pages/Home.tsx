@@ -1,8 +1,8 @@
-import React from 'react';
-import './Home.css';
+import React from "react";
+import "./Home.css";
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 /*
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -10,9 +10,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
  */
-import {Paper} from '@material-ui/core';
+import {Paper} from "@material-ui/core";
 
-function Home() {
+function Home(): JSX.Element {
     return (
         <div>
             <Header name="Home"/>
